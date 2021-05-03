@@ -28,8 +28,8 @@ function App() {
           <SignOut />
         </header>
 
-        <section>
-          {user ? <ChatRoom roomId={roomId}/> : <SignIn />}
+        <section style={{height: user ? null : "216%"}}>
+          {user ? <ChatRoom roomId={roomId}/> : <SignIn/>}
         </section>
       </div>
     </div>
