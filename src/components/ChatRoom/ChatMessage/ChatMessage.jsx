@@ -10,7 +10,7 @@ export default function ChatMessage(props) {
   
     return (<>
       <div className={`message ${messageClass}`}>
-        <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+        <img src={photoURL || `https://avatars.dicebear.com/api/bottts/${uid}.svg`} alt="pic"/>
         <p>{text}</p>
       </div>
     </>)
