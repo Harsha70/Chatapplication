@@ -17,3 +17,11 @@
     background: #e5e5ea;
     color: black;
 }
+
+.hideedit {
+    cursor: pointer;
+}
+
+.hideedit :hover{
+    display: flex;
+}
