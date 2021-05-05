@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import Rooms from './components/Rooms/Rooms'
 import ChatRoom from './components/ChatRoom/ChatRoom'
+import SignInWithEmail from './components/SignInWithEmail/SignInWithEmail'
 
 import {auth} from './firebase/firebase'
 import firebase from './firebase/firebase'
@@ -47,6 +48,7 @@ function SignIn() {
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+      <SignInWithEmail/>
     </>
   )
 
