@@ -1,0 +1,15 @@
+.sign-in-form{
+    display: inherit;
+    margin-top: 10px;
+    background-color: rgb(40, 37, 53);
+}
+.sign-in-input{
+    width: auto;
+}
+.sign-in-test{
+    max-width: inherit;
+    padding: 0px;
+}
+.sign-in-btn{
+    padding: 10px 10px 7px 9px;
+}
