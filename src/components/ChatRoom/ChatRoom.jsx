@@ -47,7 +47,8 @@ export default function ChatRoom({roomId}) {
       if (selected && types.includes(selected.type)){
           seterror("")
           const {url, progress} = UseStorage(selected, auth, roomId) // taken from flickgram and converted to normal function from custom hooks
-      }else{
+        console.log(url, progress)
+        }else{
           seterror("Please select image of type (png or jpeg)")
           window.alert(error)
       }
