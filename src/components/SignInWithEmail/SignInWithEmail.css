@@ -5,11 +5,14 @@
 }
 .sign-in-input{
     width: auto;
+    border: revert;
+    background-color: white;
+    color: black;
 }
 .sign-in-test{
     max-width: inherit;
     padding: 0px;
 }
 .sign-in-btn{
-    padding: 10px 10px 7px 9px;
+    padding: 10px 10px 7px 10px;
 }

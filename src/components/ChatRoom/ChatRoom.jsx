@@ -5,6 +5,8 @@ import firebase from '../../firebase/firebase'
 
 import ChatMessage from './ChatMessage/ChatMessage'
 
+import UseStorage from '../useStorage/UseStorage'
+
 import "./ChatRoom.css"
 
 export default function ChatRoom({roomId}) {
@@ -35,6 +37,21 @@ export default function ChatRoom({roomId}) {
       setFormValue('');
       dummy.current.scrollIntoView({ behavior: 'smooth' });
     }
+
+    const [error, seterror] = useState(null)
+
+    const types = ["image/png", "image/jpeg", "image/jpg"]
+
+    const changehandler = async (event) => {
+      const selected= event.target.files[0]
+      if (selected && types.includes(selected.type)){
+          seterror("")
+          const {url, progress} = UseStorage(selected, auth, roomId) // taken from flickgram and converted to normal function from custom hooks
+      }else{
+          seterror("Please select image of type (png or jpeg)")
+          window.alert(error)
+      }
+  }
   
     return (<>
       <main style={{margin:'0px'}}>
@@ -48,7 +65,7 @@ export default function ChatRoom({roomId}) {
       <form onSubmit={sendMessage}>
         <div className="attach-emoji">
             <span>😃</span>
-            <label><input type="file" style={{opacity:0}}/><span> 📎 </span></label>
+            <label><input type="file" style={{opacity:0}} onChange ={changehandler} /><span> 📎 </span></label>
         </div>
           
         <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />

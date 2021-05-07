@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 import {firestore} from '../../firebase/firebase'
 
@@ -10,18 +10,22 @@ import firebase from '../../firebase/firebase'
 
 const Rooms = (props) => {
 
-    const roomsRef = firestore.collection('rooms').orderBy('createdAt');
-    const [rooms] = useCollectionData(roomsRef, { idField: 'id' });
-    console.log("rooms", rooms)
+    const roomsRef = firestore.collection('rooms')
+    const roomsrefcollect = roomsRef.orderBy('createdAt').limit(25);
+    const [rooms] = useCollectionData(roomsrefcollect, { idField: 'id' });
+    // console.log("rooms", rooms)
+    const [selectedroom, setselectedroom] = useState('EHJjafIsOKJPG0yfYYEh')
 
     const selectRoom = (roomId) => {
         props.selectRoom(roomId)
+        setselectedroom(roomId)
+
     }
 
-    const Addroom = () => {
+    const Addroom = async() => {
         let newgrp = prompt('Add group');
       if (String(newgrp) !== ""){
-        roomsRef.add({
+        await roomsRef.add({
             name: newgrp,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
           })
@@ -32,10 +36,10 @@ const Rooms = (props) => {
         <div>
             <header>
                 <h1>rooms</h1>
-                <h1 onClick={Addroom}>Add</h1>
+                <h1 style={{cursor:'pointer'}} onClick={Addroom}>ADD+</h1>
             </header>
             <div>
-            {rooms && rooms.map((room)=><Room key={room.id} room={room} selectRoom={selectRoom}/>)}
+            {rooms && rooms.map((room)=><Room key={room.id} room={room} selectedroom={selectedroom} selectRoom={selectRoom}/>)}
             </div>
         </div>
     )
