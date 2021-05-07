@@ -25,7 +25,9 @@ export default function ChatMessage(props) {
     return (<>
       <div className={`message ${messageClass}`}>
         <img src={photoURL || `https://avatars.dicebear.com/api/bottts/${uid}.svg`} alt="pic"/>
-        <p>{text} {messageClass==="sent"?<span className="hideedit" onClick={() => onEdit()}>✏️</span>:null}</p>
+        {props.message.url? 
+        <img className={"chat-img"} src={props.message.url} alt="Img"/> 
+        :<p>{text} {messageClass==="sent"?<span className="hideedit" onClick={() => onEdit()}>✏️</span>:null}</p>}
       </div>
     </>)
   }

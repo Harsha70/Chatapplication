@@ -1,4 +1,9 @@
 .eachroom{
     border-bottom: dotted;
     cursor: pointer;
+    border-radius: inherit;
+}
+
+.selected{
+    background-color: #3f4146;
 }
