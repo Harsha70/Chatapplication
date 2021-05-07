@@ -1,5 +1,5 @@
-import {useState, useEffect} from 'react'
-import { useAuthState } from 'react-firebase-hooks/auth'
+// import {useState, useEffect} from 'react'
+// import { useAuthState } from 'react-firebase-hooks/auth'
 import {projectStorage, firestore, timestamp} from "../../firebase/firebase"
 import firebase from '../../firebase/firebase'
 
