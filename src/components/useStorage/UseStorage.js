@@ -1,6 +1,6 @@
 // import {useState, useEffect} from 'react'
 // import { useAuthState } from 'react-firebase-hooks/auth'
-import {projectStorage, firestore, timestamp} from "../../firebase/firebase"
+import {projectStorage, firestore} from "../../firebase/firebase"
 import firebase from '../../firebase/firebase'
 
 const UseStorage = (file, auth, roomId) => {
@@ -25,6 +25,7 @@ const UseStorage = (file, auth, roomId) => {
 
         storageRefs.put(file).on('state_changed', (snap) => {
             let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
+            console.log(percentage)
             // setprogress(percentage);
         }, (err) => {
             // seterror(err);
